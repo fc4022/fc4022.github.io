@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise 2 Shine</title>
+    <link rel="stylesheet" href="https://use.typekit.net/xnp8mmp.css"> <!-- Typekit CSS importieren -->
+    <style>
+        body {
+            margin: 0;
+            padding: 20px; /* Default padding for better spacing */
+            box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
+            max-width: 100%; /* Limit maximum width for better readability */
+            background-color: white;
+            font-family: 'objektiv-mk1', sans-serif; /* Use Typekit font objektiv-mk1 */
+            font-weight: 200; /* Set font weight to 200 */
+            font-style: normal; /* Set font style to normal */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black"><circle cx="12" cy="12" r="10"/></svg>') 12 12, auto;
+        }
+        .button-container {
+            text-align: center;
+            margin: 10px 0; /* Add some vertical margin between the boxes */
+        }
+        .button {
+            display: inline-block;
+            padding: 20px 40px; /* Increase padding for a bigger button */
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            font-size: 24px; /* Set font size to 24px */
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: rgb(255, 0, 0);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="button" onclick="showImage()">illRise 2 Shine</button>
+    </div>
+
+    <script>
+        function showImage() {
+            window.location.href = 'image.html';
+        }
+    </script>
+</body>
+</html>
