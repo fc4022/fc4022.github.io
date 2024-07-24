@@ -1,270 +1,300 @@
 <!DOCTYPE html>
-<html lang="de,eng">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rise 2 Shine</title>
-<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            max-width: 100%;
-            background: url('https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/main/background-1.jpg') no-repeat center center fixed;
-            background-size: 100% 100%;
-            font-family: 'Pinyon Script', cursive;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black"><circle cx="12" cy="12" r="10"/></svg>') 12 12, auto;
-            overflow: hidden;
-            position: relative;
-                }
-        .button {
-            background-color: #999;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            color: white;
-            padding: 10px 20px;
-            font-family: "DM Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 200;
-            font-style: normal;
-            font-size: 48px;
-            z-index: 1001;
-            text-align: center;
-            cursor: pointer;
-            opacity: 1;
-        }
-        .button:hover {
-            background-color: #d0d0d0;
-        }
-        .overlay2 {
-            display: none;
-            position: fixed;
-            top: 20;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1001;
-            overflow-y: auto;
-        }
-        .overlay2-content {
-            position: relative;
-            width: 90%;
-            max-width: 600px;
-            min-height: 400px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .close-overlay2 {
-            position: absolute;
-            top: 40px;
-            right: 40px;
-            color: black;
-            font-size: 36px;
-            text-decoration: none;
-            padding: 20px;
-            cursor: pointer;
-            z-index: 1;
-        }
-        .close-overlay2 a:hover {
+    <html lang="de,eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rise 2 Shine</title>
+        <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                max-width: 100%;
+                background: url('https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/main/background-1.jpg') no-repeat center center fixed;
+                background-size: 100% 100%;
+                font-family: 'Pinyon Script', cursive;
+                cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black"><circle cx="12" cy="12" r="10"/></svg>') 12 12, auto;
+                overflow: hidden;
+                position: relative;
+            }
+            .button {
+                color: white;
+                padding: 10px 20px;
+                font-family: "DM Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 200;
+                font-style: normal;
+                font-size: 48px;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                display: inline-block;
+                transition: text-shadow 0.3s ease;
+            }
+            .button:hover {
+                text-shadow: 0 0 10px lightblue, 0 0 20px pink;
+            }
+            .overlay2 {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1001;
+                overflow-y: auto;
+                background: rgba(0, 0, 0, 0.5);
+            }
+            .overlay2-content {
+                position: relative;
+                width: 90%;
+                max-width: 600px;
+                min-height: 400px;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .close-overlay2 {
+                position: absolute;
+                top: 40px;
+                right: 40px;
+                color: black;
+                font-size: 36px;
+                text-decoration: none;
+                padding: 20px;
+                cursor: pointer;
+                z-index: 1;
+            }
+            .close-overlay2:hover {
+                color: red;
+            }
+            .overlay2-text {
+                position: absolute;
+                bottom: 10px;
+                color: white;
+                text-align: center;
+                font-size: 24px;
+                font-family: "DM Sans", sans-serif;
+                font-weight: 200;
+                font-style: italic;
+                z-index: 1;
+            }
+            .image-container {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .image-content {
+                width: 100%;
+                max-width: 500px;
+                min-width: 300px;
+                margin: 1px;
+                padding: 40px;
+                border: 0;
+            }
+            .moods-button {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                padding: 10px 20px;
+                border: 2px solid black;
+                background-color: white;
+                color: black;
+                font-family: 'Pinyon Script', cursive;
+                font-size: 16px;
+                text-decoration: none;
+                cursor: pointer;
+                z-index: 1000;
+            }
+            .moods-button:hover {
+                background-color: rgb(255, 0, 0);
+                color: white;
+            }
+            .carousel {
+                display: none;
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                width: 200px;
+                height: 250px;
+                overflow: hidden;
+                background-color: rgba(255, 255, 255, 0.9);
+                border: 2px solid black;
+                z-index: 1001;
+            }
+            .carousel img {
+                width: 100%;
+                height: auto;
+            }
+            .navbar {
+                position: fixed;
+                top: 10px;
+                right: 0;
+                padding: 10px 20px;
+                background-color: white;
+                border: 2px solid black;
+                font-size: 16px;
+                z-index: 1002;
+                margin-right: 10px;
+            }
+            .navbar a {
+                margin-left: 20px;
+                text-decoration: none;
+                color: black;
+            }
+            .navbar a:hover {
+                color: red;
+            }
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                font-family: "DM Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: italic;
+                text-align: left;
+                color: white;
+                font-size: 10px;
+                z-index: 1;
+                margin-left: 10px;
+            }
+            }
+            .footer:hover {
             color: red;
-        }
-        .overlay2-text {
-            position: absolute;
-            bottom: 10px;
-            color: white;
-            text-align: center;
-            font-size: 24px;
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: italic;
-            z-index: 1;
-        }
-        .image-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .image-content {
-            width: 100%;
-            max-width: 500px;
-            min-width: 300px;
-            margin: 1px;
-            padding: 40px;
-            border: 0;
-        }
-        .moods-button {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            padding: 10px 20px;
-            border: 2px solid black;
-            background-color: white;
-            color: black;
-            font-family: 'Pinyon Script', cursive;
-            font-size: 16px;
-            text-decoration: none;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .moods-button:hover {
-            background-color: rgb(255, 0, 0);
-            color: white;
-        }
-        .carousel {
-            display: none;
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            width: 300px;
-            height: 200px;
-            overflow: hidden;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 2px solid black;
-            z-index: 1001;
-        }
-        .carousel img {
-            width: 100%;
-            height: auto;
-        }
-        .navbar {
-            position: fixed;
-            top: 10px;
-            right: 0;
-            padding: 10px 20px;
-            background-color: white;
-            border: 2px solid black;
-            font-size: 16px;
-            z-index: 1002;
-            margin-right: 10px;
-        }
-        .navbar a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: black;
-        }
-        .navbar a:hover {
-            color: red;
-        }
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px 0;
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: italic;
-            text-align: left;
-            color: white;
-            font-size: 10px;
-            z-index: 1;
-            margin-left: 10px;
-        }
-        .rain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
-            opacity: 0.3;
-        }
-        .rain div {
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: white;
-            font-family: 'Open Sans', sans-serife;
-            font-size: 10px;
-            animation: fall linear infinite;
-            white-space: nowrap;
-       }
-        @keyframes fall {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(100vh); }
-        }
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <a href="#archive">Archive</a>
-        <a href="https://r2shine.de/shop">Shop</a>
-        <a href="#contact">About</a>
-    </div>
-    <div class="button-container">
-        <button class="button" onclick="toggleOverlay2()">illRise 2 Shine®</button>
-    </div>
-    <div class="overlay2" id="overlay2" onclick="closeOverlay2(event)">
-        <div class="overlay2-content">
-            <span class="close-overlay2" onclick="toggleOverlay2()">×</span>
-            <div class="image-container">
-                <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/aks-1.png" alt="illrise2shine" class="image-content">
-            </div>
-            <span class="overlay2-text">More 1nfos on my instagram @piquedeux!1!</span>
+                        }
+            .rain {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                overflow: hidden;
+                z-index: 0;
+                opacity: 0.3;
+            }
+            
+            .rain div {
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: white;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 10px;
+                animation: fall linear infinite;
+                white-space: nowrap;
+            }
+            @keyframes fall {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(100vh); }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="#archive">Archive</a>
+            <a href="https://r2shine.de/shop">Shop</a>
+            <a href="#contact">About</a>
         </div>
-    </div>
-    <button class="moods-button" onclick="toggleCarousel()">let me see</button>
-    <div class="carousel" id="carousel">
-        <img src="https://i.pinimg.com/474x/c0/ab/2b/c0ab2b5660b2b0bbc20722f6f975617f.jpg" alt="Moods Image 1">
-        <img src="https://i.pinimg.com/474x/8e/4f/e5/8e4fe5d2becb35b553e858d71bd69dbc.jpg" alt="Moods Image 2">
-        <img src="https://i.pinimg.com/474x/32/ad/a5/32ada551c23e67bcee6ce8fecc499c54.jpg" alt="Moods Image 3">
-        <img src="https://i.pinimg.com/474x/19/71/72/19717256ac9200f9c42aba214285d614.jpg" alt="Moods Image 4">
-        <img src="https://i.pinimg.com/474x/74/24/54/74245471edbced171d81999b2f034d56.jpg" alt="Moods Image 5">
-        <img src="https://i.pinimg.com/474x/91/a5/22/91a52299712a904c6152fa267f4909c2.jpg" alt="Moods Image 6">
-    </div>
-    <div class="footer">
-        © 2024 Moritz Gauss. All rights reserved. <a href="#contact">Contact</a>
-    </div>
-
-    <script>
-        function toggleOverlay2() {
-            const overlay2 = document.getElementById('overlay2');
-            overlay2.style.display = (overlay2.style.display === 'block') ? 'none' : 'block';
-        }
-
-        function closeOverlay2(event) {
-            if (event.target === event.currentTarget) {
-                toggleOverlay2();
-            }
-        }
-
-        function toggleCarousel() {
-            const carousel = document.getElementById('carousel');
-            carousel.style.display = (carousel.style.display === 'block') ? 'none' : 'block';
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.getElementById('carousel');
-            const images = carousel.querySelectorAll('img');
-            let currentImageIndex = 0;
-
-            function showNextImage() {
-                images[currentImageIndex].style.display = 'none';
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                images[currentImageIndex].style.display = 'block';
-            }
-
-            images[currentImageIndex].style.display = 'block';
-            setInterval(showNextImage, 3000);
-        });
-    </script>
+        <div class="button-container">
+            <a href="#" class="button" onclick="toggleOverlay2()">illRise 2 Shine®</a>
+        </div>
+        <div class="overlay2" id="overlay2" onclick="closeOverlay2(event)">
+            <div class="overlay2-content">
+                <span class="close-overlay2" onclick="toggleOverlay2()">×</span>
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/aks-1.png" alt="illrise2shine" class="image-content">
+                </div>
+                <span class="overlay2-text">instagram @piquedeux</span>
+            </div>
+        </div>
+        <a href="#" class="moods-button" onclick="toggleCarousel()">let me see</a>
+        <div class="carousel" id="carousel">
+<img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3835.jpeg" alt="Mood Image 1">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3838.JPG" alt="Mood Image 2">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3839.JPG" alt="Mood Image 3">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3840.JPG" alt="Mood Image 4">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3841.JPG" alt="Mood Image 5">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3842.JPG" alt="Mood Image 6">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3843.JPG" alt="Mood Image 7">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3844.JPG" alt="Mood Image 8">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3845.JPG" alt="Mood Image 9">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3846.JPG" alt="Mood Image 10">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3847.JPG" alt="Mood Image 11">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3848.JPG" alt="Mood Image 12">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3849.JPG" alt="Mood Image 13">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3850.JPG" alt="Mood Image 14">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3851.JPG" alt="Mood Image 15">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3856.JPG" alt="Mood Image 16">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3857.jpeg" alt="Mood Image 17">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3858.jpeg" alt="Mood Image 18">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3859.jpeg" alt="Mood Image 19">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3861.jpeg" alt="Mood Image 20">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3862.jpeg" alt="Mood Image 21">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3863.jpeg" alt="Mood Image 22">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3864.jpeg" alt="Mood Image 23">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3865.jpeg" alt="Mood Image 24">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3866.jpeg" alt="Mood Image 25">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3867.jpeg" alt="Mood Image 26">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3868.jpeg" alt="Mood Image 27">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3869.jpeg" alt="Mood Image 28">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3870.jpeg" alt="Mood Image 29">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3871.jpeg" alt="Mood Image 30">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_3873.jpeg" alt="Mood Image 31">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_4874.jpeg" alt="Mood Image 32">
+                        <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/IMG_5023.jpeg" alt="Mood Image 33">
+                </div>
+                <div class="footer">
+                    © 2024 Moritz Gauss. All rights reserved. <a href="https://moritzgauss.xyz/about">Contact</a>
+                </div>
+            
+                <script>
+                    function toggleOverlay2() {
+                        const overlay2 = document.getElementById('overlay2');
+                        overlay2.style.display = (overlay2.style.display === 'block') ? 'none' : 'block';
+                    }
+            
+                    function closeOverlay2(event) {
+                        if (event.target === event.currentTarget) {
+                            toggleOverlay2();
+                        }
+                    }
+            
+                    function toggleCarousel() {
+                        const carousel = document.getElementById('carousel');
+                        carousel.style.display = (carousel.style.display === 'block') ? 'none' : 'block';
+                    }
+            
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const carousel = document.getElementById('carousel');
+                        const images = carousel.querySelectorAll('img');
+                        let currentImageIndex = 0;
+            
+                        function showNextImage() {
+                            images[currentImageIndex].style.display = 'none';
+                            currentImageIndex = (currentImageIndex + 1) % images.length;
+                            images[currentImageIndex].style.display = 'block';
+                        }
+            
+                        images[currentImageIndex].style.display = 'block';
+                        setInterval(showNextImage, 1000);
+                    });
+                </script>
     <div class="rain"></div>
     <script>
         const rainContainer = document.querySelector('.rain');
