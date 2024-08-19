@@ -45,8 +45,9 @@
             .overlay2 {
                 display: none;
                 position: fixed;
-                top: 0;
-                left: 0;
+                overflow: hidden;
+                top: auto;
+                left: auto;
                 width: 100%;
                 height: 100%;
                 z-index: 1001;
@@ -77,18 +78,6 @@
             .close-overlay2:hover {
                 color: red;
             }
-            .overlay2-text {
-                position: absolute;
-                bottom: 10px;
-                color: white;
-                text-align: center;
-                font-size: 24px;
-                font-family: "DM Sans", sans-serif;
-                font-weight: 200;
-                font-style: italic;
-                z-index: 1;
-            }
-                 }
             .image-container {
                 width: 100%;
                 height: 100%;
@@ -173,6 +162,10 @@
                 z-index: 1;
                 margin-left: 10px;
             }
+            }
+            .footer:hover {
+            color: red;
+                        }
             .rain {
                 position: absolute;
                 top: 0;
@@ -203,9 +196,9 @@
     </head>
     <body>
         <div class="navbar">
-            <a href="https://r2shine.de/archive">Archive</a>
+            <a href="#archive">Archive</a>
             <a href="https://r2shine.de/shop">Shop</a>
-            <a href="https://r2shine.de/about">About</a>
+            <a href="#contact">About</a>
         </div>
         <div class="button-container">
             <a href="#" class="button" onclick="toggleOverlay2()">illRise 2 Shine®</a>
@@ -217,9 +210,21 @@
                     <img src="https://raw.githubusercontent.com/refuse2sink/refuse2sink.github.io/assets/aks-1.png" alt="illrise2shine" class="image-content">
                 </div>
             </div>
-            </div>
-          <div class="footer">&copy; 2024 r2s. all rights reserved. mg.</div>
-            <script>
+        </div>
+        <a href="#" class="moods-button" onclick="toggleCarousel()">let me see</a>
+        <div class="carousel" id="carousel">
+            <img src="https://i.pinimg.com/474x/c0/ab/2b/c0ab2b5660b2b0bbc20722f6f975617f.jpg" alt="Moods Image 1">
+            <img src="https://i.pinimg.com/474x/8e/4f/e5/8e4fe5d2becb35b553e858d71bd69dbc.jpg" alt="Moods Image 2">
+            <img src="https://i.pinimg.com/474x/32/ad/a5/32ada551c23e67bcee6ce8fecc499c54.jpg" alt="Moods Image 3">
+            <img src="https://i.pinimg.com/474x/19/71/72/19717256ac9200f9c42aba214285d614.jpg" alt="Moods Image 4">
+            <img src="https://i.pinimg.com/474x/74/24/54/74245471edbced171d81999b2f034d56.jpg" alt="Moods Image 5">
+            <img src="https://i.pinimg.com/474x/91/a5/22/91a52299712a904c6152fa267f4909c2.jpg" alt="Moods Image 6">
+                </div>
+                <div class="footer">
+                    © 2024 Moritz Gauss. All rights reserved. <a href="https://moritzgauss.xyz/about">Contact</a>
+                </div>
+            
+                <script>
                     function toggleOverlay2() {
                         const overlay2 = document.getElementById('overlay2');
                         overlay2.style.display = (overlay2.style.display === 'block') ? 'none' : 'block';
@@ -248,7 +253,7 @@
                         }
             
                         images[currentImageIndex].style.display = 'block';
-                        setInterval(showNextImage, 1000);
+                        setInterval(showNextImage, 3000);
                     });
                 </script>
     <div class="rain"></div>
